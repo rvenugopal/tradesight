@@ -56,10 +56,20 @@
     <div class="container">
       
       <div id="problems" class="pane">
+        <h1>Scenario</h1>
+        <p>You are given five time series of daily returns corresponding to five different stocks. With these fove return series you can calculate the returns
+        of a portfolio of any combination of these five stocks. For instance, if you were to hold the five stocks in equal amounts so that each stock was
+        was 20% of your total portfolio, you could calculate the returns of this portfolio by summing the returns of each stock scale3d by 20% at each point
+        in time. This is an "equal weighted portfolio."
+        </p>
+        <p>
+        If you want to vizualize the performance of a time series of returns, one good way is to compute the cumulative return index. This is a series that shows
+        the accumulation of each subsequent days' return.
+        </p>
         <h1>Problems</h1>
         <ol>
-          <li>Compute the return series for the equally-weighted portfolio of these five stocks (a portfolio where each series contributes 20% to the total).</li>
-          <li>Compute and <a href="#weighted">graph</a> an equally-weighted return index by accumulating each day's returns from #1</li>
+          <li>Compute the returns for the equally-weighted portfolio of these five stocks (a portfolio where each series contributes 20% to the total).</li>
+          <li>Compute and <a href="#weighted">graph</a> the cumulative return index (by accumulating each day's returns from #1)</li>
           <li>Figure out:
             <ul>
               <li>the continuous time range over which the equal-weight portfolio in #2 increases by the max percentage</li>
