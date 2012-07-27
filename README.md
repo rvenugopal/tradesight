@@ -11,3 +11,4 @@ After all the dependencies have been fetched and the sources compiled, the web a
 ## IDE Support
 
 The SBT project includes both the (sbt-idea)[https://github.com/mpeltonen/sbt-idea] and sbteclipse plugins out of the box.
+To generate an Idea project, run the `gen-idea` task in the SBT shell. For Eclipse, run `eclipse`. For emacs et al, well, you know.
