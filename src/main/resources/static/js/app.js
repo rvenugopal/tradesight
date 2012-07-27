@@ -53,9 +53,9 @@ $(document).ready(function() {
     
     $("a[href=#weighted]").click(function() { fetchGraph("weighted") });
     
-    var hash = window.location.hash || "#problem";
+    var hash = window.location.hash || "#problems";
     showActive(hash);
-    if(hash != "#problem")
+    if(hash != "#problems")
       fetchGraph(hash.substr(1));
   })();
 });
