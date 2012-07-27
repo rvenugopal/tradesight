@@ -1,2 +1,4 @@
 tradesight
 ==========
+
+./sbt
