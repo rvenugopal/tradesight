@@ -1,6 +1,11 @@
 tradesight
 ==========
 
+tradesight is a small set of prepared problems on financial analysis. It's also a mix of server and client side application code,
+using primarily [unfiltered](http://unfiltered.databinder.net/) and [nvd3](https://github.com/novus/nvd3).
+
+## Getting Started
+
 Clone the repository. In the project directory, launch sbt and then execute the `run` task
 
     ./sbt
@@ -10,7 +15,7 @@ After all the dependencies have been fetched and the sources compiled, the web a
 
 ## Working the Problems
 
-Most of the problems will probably be solved in `ProblemsPlan.scala`. This serves the endpoint to data for at least one of the problems. You are free to modify whatever you wish, and of course there some prepared utilities to help you on your way. 
+Most of the problems will probably be solved in `ProblemsPlan.scala`. This serves the endpoint to data for at least one of the problems. You are free to modify whatever you wish, and of course there are some prepared utilities to help you on your way. 
 
 ## IDE Support
 
