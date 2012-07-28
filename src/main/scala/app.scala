@@ -8,14 +8,12 @@ object App {
   def main(args: Array[String]) {
     
     val streamMap = ReturnStreams.mappedFromDir("data")
-    
-    val returnStreams: ReturnsIndex = streamMap.lift
 
     val plan = unfiltered.filter.Planify {
       case GET(Path("/streams")) =>
         val streams = streamMap.keySet.foldLeft(List.empty[NamedStream[Long, Double]]) {
           (rs, sym) =>
-            returnStreams(sym).map { s =>
+            streamMap.get(sym).map { s =>
               val values = s.map(dataPoint).toSeq
               NamedStream(sym, values) :: rs
             } getOrElse(rs)
@@ -26,7 +24,7 @@ object App {
     Http(8888)
       .context("/static")(_.resources(this.getClass.getResource("/static")))
       .plan(plan)
-      .plan(ProblemsPlan(returnStreams))
+      .plan(ProblemsPlan(streamMap))
       .run()
   }
 }

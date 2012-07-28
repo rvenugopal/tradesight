@@ -8,7 +8,7 @@ import net.liftweb.json.JsonAST.JValue
 
 package object tradesight {
   
-  type ReturnsIndex = String => Option[SortedMap[DateTime, Double]]
+  type ReturnsIndex = Map[String, collection.SortedMap[org.joda.time.DateTime, Double]]//String => Option[SortedMap[DateTime, Double]]
   
   type LineParser = String => Option[(DateTime, Double)]
 

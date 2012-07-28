@@ -7,12 +7,10 @@ import unfiltered.response._
  * Notes
  * 
  * ReturnsIndex is defined in the package object as:
- *   type ReturnsIndex = String => Option[SortedMap[DateTime, Double]]
- *
- * Use this to access the return streams of the stocks.
+ *   type ReturnsIndex = Map[String, collection.SortedMap[org.joda.time.DateTime, Double]]
  */
 object ProblemsPlan {
-  def apply(returnStreams: ReturnsIndex) =
+  def apply(streamMap: ReturnsIndex) =
     unfiltered.filter.Planify {
       case GET(Path("/weighted")) =>
         val streams =
