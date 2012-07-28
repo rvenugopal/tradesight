@@ -26,10 +26,15 @@ package object tradesight {
   }
   
   /* Supporting model classes for chart data. */
+
+  /** Essentially just a pair with named values (convenience for JSON serialization) */
   case class DataPoint[X, Y](x: X, y: Y)
+
+  /** A named sequence of points - supports JSON strucutre for client side graphs. */
   case class NamedStream[X, Y](key: String, values: Seq[DataPoint[X, Y]])
   
   /* Common utilities. */
+
   val anyJson: Any => JValue = decompose(_:Any)(net.liftweb.json.DefaultFormats)
   def dataPoint(pair: (DateTime, Double)) = DataPoint(pair._1.getMillis, pair._2)
 
