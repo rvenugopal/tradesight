@@ -8,7 +8,7 @@ object ProblemsPlan {
     unfiltered.filter.Planify {
       case GET(Path("/weighted")) =>
         val streams =
-          NamedStream("TODO", (0 to 99).map { i =>
+          NamedStream("PLEASE IMPLEMENT ME", (0 to 99).map { i =>
             org.joda.time.DateTime.now -> i.toDouble
           }.map(dataPoint)) :: Nil
         Json(anyJson(streams))
