@@ -31,7 +31,7 @@ package object tradesight {
   case class DataPoint[X, Y](x: X, y: Y)
 
   /** A named sequence of points - supports JSON strucutre for client side graphs. */
-  case class NamedStream[X, Y](key: String, values: Seq[DataPoint[X, Y]])
+  case class NamedStream[X, Y](key: String, values: Iterable[DataPoint[X, Y]])
   
   /* Common utilities. */
 

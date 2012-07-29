@@ -2,6 +2,8 @@ package com.novus.tradesight
 
 import unfiltered.request._
 import unfiltered.response._
+import org.joda.time.DateTime
+import collection.SortedMap
 
 /*
  * Notes
@@ -13,10 +15,15 @@ object ProblemsPlan {
   def apply(streamMap: ReturnsIndex) =
     unfiltered.filter.Planify {
       case GET(Path("/weighted")) =>
-        val streams =
-          NamedStream("PLEASE IMPLEMENT ME", (0 to 99).map { i =>
-            org.joda.time.DateTime.now -> i.toDouble
-          }.map(dataPoint)) :: Nil
-        Json(anyJson(streams))
+        val stream = NamedStream(
+          "PLEASE IMPLEMENT ME",
+          weightedIndex(streamMap).map(dataPoint)
+        )
+        Json(anyJson(stream :: Nil))
+    }
+
+  def weightedIndex(streamMap: ReturnsIndex): SortedMap[DateTime, Double] =
+    (0 to 99).foldLeft(SortedMap.empty[DateTime, Double]) { (acc, i) =>
+      acc + (DateTime.now -> .1d)
     }
 }
