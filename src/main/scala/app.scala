@@ -25,6 +25,6 @@ object App {
       .context("/static")(_.resources(this.getClass.getResource("/static")))
       .plan(plan)
       .plan(ProblemsPlan(streamMap))
-      .run()
+      .run{ _ => unfiltered.util.Browser.open("http://localhost:8888/static/index.html") }
   }
 }
