@@ -15,15 +15,16 @@ object ProblemsPlan {
   def apply(streamMap: ReturnsIndex) =
     unfiltered.filter.Planify {
       case GET(Path("/weighted")) =>
-        val stream = NamedStream(
-          "PLEASE IMPLEMENT ME",
-          weightedIndex(streamMap).map(dataPoint)
+        val stream = 
+          NamedStream("PLEASE IMPLEMENT ME",
+            weightedReturns(streamMap).map(dataPoint)
         )
         Json(anyJson(stream :: Nil))
     }
 
-  def weightedIndex(streamMap: ReturnsIndex): SortedMap[DateTime, Double] =
+  def weightedReturns(streamMap: ReturnsIndex): SortedMap[DateTime, Double] =
     (0 to 99).foldLeft(SortedMap.empty[DateTime, Double]) { (acc, i) =>
       acc + (DateTime.now -> .1d)
     }
+
 }
